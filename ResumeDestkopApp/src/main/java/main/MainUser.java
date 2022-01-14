@@ -34,10 +34,18 @@ public class MainUser extends javax.swing.JFrame {
     public MainUser() {
         initComponents();
         loggedInUser = userDao.getById(5);
+        fillWindow();
         fillUserComponents();
     }
 
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    
+    private void fillWindow(){
+        List<Country> countries = countryDao.getAll();
+        for(Country c: countries){
+            cbCountry.addItem(c);
+        } 
+    }
 
     private void fillUserComponents() {
         txtName.setText(loggedInUser.getName());
@@ -49,11 +57,8 @@ public class MainUser extends javax.swing.JFrame {
         Date dt = loggedInUser.getBirthDate();
         String dtStr = sdf.format(dt);
         txtBirthDate.setText(dtStr);
-        
-        List<Country> countries = countryDao.getAll();
-        for(Country c: countries){
-            cbCountry.addItem(c);
-        }
+        cbCountry.setSelectedItem(loggedInUser.getBirthPlace());
+       
    
         
         cbNationality.addItem(new Country(1, "Azerbaijan", "Azerbaijani"));
