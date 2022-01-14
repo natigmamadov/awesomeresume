@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.dao.inter;
+package com.company.dao.inter;
 
-import com.company.bean.User;
+import com.company.entity.User;
+import com.company.entity.UserSkill;
 import java.util.List;
 
 /**

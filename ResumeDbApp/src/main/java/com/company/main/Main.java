@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.main;
+package com.company.main;
 
-import com.company.bean.User;
-import com.mycompany.dao.inter.UserDaoInter;
+import com.company.dao.inter.SkillDaoInter;
 
 /**
  *
@@ -16,9 +15,8 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {   
-        UserDaoInter userDao = Context.instanceUserDao();
-        User u = new User(0, "Sarkhan", "Rasullu", "sarkhanrasullu@gmail.com", "+9945555555");
-        userDao.addUser(u);
+        SkillDaoInter dao = Context.instanceSkillDao();
+        System.out.println(dao.getAll());
         
     }
     
